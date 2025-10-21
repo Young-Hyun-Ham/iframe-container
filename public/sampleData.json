@@ -1,0 +1,23 @@
+{
+  "result": {
+    "blNr": "SVC1608000030075",
+    "dispBlNr": "AL0000184478",
+    "shpGameCd": "HBT",
+    "vslCd": "UACT",
+    "vslVoyNr": "0199",
+    "scnCd": "E",
+    "polCd": "CNSHA",
+    "polNodeNm": "CNSHAMQ",
+    "polNm": "SHA/SHANGHAI",
+    "podCd": "TWKHH",
+    "podNodeNm": "TWKHHIES",
+    "custEtaDt": "2018/05/15 15:00:00",
+    "currEtbDt": "2018/05/15 20:00:00",
+    "currEtdDt": "2018/05/16 00:00:00",
+    "uastEtaDt": "2018/05/15 15:00:00",
+    "actlArrvDt": "2018/05/15 15:00:00",
+    "actlBrthDt": "2018/05/15 20:00:00",
+    "actlDeptDt": "2018/05/16 00:00:00",
+    "contNr": "'HSKU2233450','HKU1122343','SBLU3302340',"
+  }
+}
