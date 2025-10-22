@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import styles from './iframeScenrio.module.css';
+import calendarIcon from '../public/calendar.svg';
+import clockIcon from '../public/clock.png';
 
 interface ResultData {
 	blNr?: string;
@@ -73,6 +75,8 @@ const IframeScenrio: React.FC = () => {
 		})();
 	}, []);
 
+	// vectorIcon2 -> 달력 아이콘
+	// clockIcon -> 시계 아이콘
 	return (
 		<div className={styles.frameParent}>
 			<div className={styles.frameGroup}>
@@ -143,7 +147,7 @@ const IframeScenrio: React.FC = () => {
 								<div className={styles.atbberthingParent}>
 									<div className={styles.atbberthing}>ATB(Berthing)</div>
 									<div className={styles.vectorGroup}>
-										<img className={styles.vectorIcon2} alt="" />
+										<img src={calendarIcon} alt="" />
 										<div className={styles.div4}>2025-10-10</div>
 									</div>
 								</div>
@@ -152,11 +156,11 @@ const IframeScenrio: React.FC = () => {
 									<div className={styles.atbberthing}>Actual</div>
 									<div className={styles.frameParent5}>
 										<div className={styles.bookingNoParent}>
-											<img className={styles.vectorIcon2} alt="" />
+											<img src={calendarIcon} alt="" />
 											<div className={styles.div4}>2025-10-10</div>
 										</div>
 										<div className={styles.bookingNoParent}>
-											<img className={styles.clockIcon} alt="" />
+											<img src={clockIcon} alt="" width={14} height={13} />
 											<div className={styles.div4}>00:00:00</div>
 										</div>
 									</div>
@@ -166,7 +170,7 @@ const IframeScenrio: React.FC = () => {
 								<div className={styles.atbberthingParent}>
 									<div className={styles.atbberthing}>ATD(Departure)</div>
 									<div className={styles.vectorGroup}>
-										<img className={styles.vectorIcon2} alt="" />
+										<img src={calendarIcon} alt="" />
 										<div className={styles.div4}>2025-10-10</div>
 									</div>
 								</div>
@@ -175,11 +179,11 @@ const IframeScenrio: React.FC = () => {
 									<div className={styles.atbberthing}>Actual</div>
 									<div className={styles.frameParent5}>
 										<div className={styles.bookingNoParent}>
-											<img className={styles.vectorIcon2} alt="" />
+											<img src={calendarIcon} alt="" />
 											<div className={styles.div4}>2025-10-10</div>
 										</div>
 										<div className={styles.bookingNoParent}>
-											<img className={styles.clockIcon} alt="" />
+											<img src={clockIcon} alt="" width={14} height={13} />
 											<div className={styles.div4}>00:00:00</div>
 										</div>
 									</div>
@@ -203,7 +207,7 @@ const IframeScenrio: React.FC = () => {
 								<div className={styles.atbberthingParent}>
 									<div className={styles.atbberthing}>ETA(Arrival)</div>
 									<div className={styles.vectorGroup}>
-										<img className={styles.vectorIcon2} alt="" />
+										<img src={calendarIcon} alt="" />
 										<div className={styles.div4}>2025-10-10</div>
 									</div>
 								</div>
@@ -212,11 +216,11 @@ const IframeScenrio: React.FC = () => {
 									<div className={styles.atbberthing}>Actual</div>
 									<div className={styles.frameParent5}>
 										<div className={styles.bookingNoParent}>
-											<img className={styles.vectorIcon2} alt="" />
+											<img src={calendarIcon} alt="" />
 											<div className={styles.div4}>-</div>
 										</div>
 										<div className={styles.bookingNoParent}>
-											<img className={styles.clockIcon} alt="" />
+											<img src={clockIcon} alt="" width={14} height={13} />
 											<div className={styles.div4}>-</div>
 										</div>
 									</div>
@@ -226,7 +230,7 @@ const IframeScenrio: React.FC = () => {
 								<div className={styles.atbberthingParent}>
 									<div className={styles.atbberthing}>ETB(Berthing)</div>
 									<div className={styles.vectorGroup}>
-										<img className={styles.vectorIcon2} alt="" />
+										<img src={calendarIcon} alt="" />
 										<div className={styles.div4}>2025-10-10</div>
 									</div>
 								</div>
@@ -235,11 +239,11 @@ const IframeScenrio: React.FC = () => {
 									<div className={styles.atbberthing}>Actual</div>
 									<div className={styles.frameParent5}>
 										<div className={styles.bookingNoParent}>
-											<img className={styles.vectorIcon2} alt="" />
+											<img src={calendarIcon} alt="" />
 											<div className={styles.div4}>-</div>
 										</div>
 										<div className={styles.bookingNoParent}>
-											<img className={styles.clockIcon} alt="" />
+											<img src={clockIcon} alt="" width={14} height={13} />
 											<div className={styles.div4}>-</div>
 										</div>
 									</div>
