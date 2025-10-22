@@ -67,7 +67,7 @@ function extractContainers(result: ResultData): string[] {
 type ProgressStatus = 'not-started' | 'in-progress' | 'completed' | 'overdue';
 function getProgressStatus(
   pct: number,
-  startMs?: number | null,
+  _startMs?: number | null,
   endMs?: number | null,
   nowMs?: number
 ): ProgressStatus {
