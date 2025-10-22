@@ -136,7 +136,8 @@ function App() {
   }, []);
 
   return (
-    <div style={{ padding: 24, background: '#ffffffff' }}>
+    <div style={{ padding: 24,
+     background: '#ffffffff' }}>
       <div className="stc-wrap">
         <style>{css}</style>
         {/* ================= HEADER ================= */}
