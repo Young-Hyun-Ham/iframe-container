@@ -3,6 +3,7 @@
   	border-radius: 4px;
   	background-color: #445b6f;
   	width: 100%;
+		height: 410px;
   	display: flex;
   	flex-direction: column;
   	align-items: flex-start;
@@ -204,7 +205,7 @@
   	line-height: 20px;
   	color: #96a9bd;
 }
-.remaining2days {
+.progressLabel {
   	position: relative;
   	letter-spacing: 0.5px;
   	line-height: 20px;
@@ -221,7 +222,7 @@
   	align-items: center;
   	justify-content: center;
   	padding: 15px 10px;
-  	gap: 20px;
+  	gap: 0px;
   	text-align: center;
 }
 .labelChipContainer {
@@ -332,3 +333,98 @@
   	color: #9eadba;
 }
 
+/* select box 수정 ================================================ */
+.select {
+  width: 100%;
+  background: #fff;
+  color: #000;
+  border: 0;              /* 기본 테두리 제거 */
+  border-radius: 8px;
+  padding: 8px 12px;
+  outline: none;          /* 기본 outline 제거 */
+  appearance: auto;       /* 기본 화살표 표시 */
+  -webkit-appearance: auto;
+}
+
+.select:focus-visible {
+  /* 접근성 고려한 커스텀 포커스 링 (원하면 색 바꿔도 됨) */
+  box-shadow: 0 0 0 2px rgba(0, 120, 255, 0.35);
+}
+
+
+/* line 수정 ================================================ */
+/* 색 토큰 (원하면 프로젝트 팔레트로 교체) */
+:root {
+  --route-color: #b3d9ff;      /* 연파랑 (라벨/점/실선) */
+  --route-dash:  #b3d9ff;      /* 점선 색 */
+  --route-bg:    transparent;  /* 트랙 배경 */
+}
+
+.routeLine {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  margin: 12px 0;
+  /* 진행률(%)를 외부에서 주입 */
+  --pct: 0%;
+}
+
+/* POL/POD 라벨 */
+.routePoint {
+  background-color: var(--route-color);
+  border-radius: 999px;
+  padding: 4px 10px;
+  font-weight: 700;
+  color: #000;
+  font-size: 13px;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+/* 선 영역 */
+.routeBar {
+  position: relative;
+  flex: 1;
+  height: 2px;
+}
+
+/* 점선 트랙: 전체 길이 */
+.routeTrack {
+  position: absolute;
+  inset: 0;
+  /* 점선 구현 */
+  background-image: repeating-linear-gradient(
+    to right,
+    var(--route-dash) 0 4px,
+    var(--route-bg) 4px 8px
+  );
+  opacity: 0.8;
+  border-radius: 2px;
+}
+
+/* 진행(실선): 왼쪽부터 --pct 만큼 채우기 */
+.routeProgress {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 2px;
+  width: var(--pct);             /* 핵심 */
+  background: var(--route-color);
+  border-radius: 2px;
+  transition: width 400ms ease;  /* 부드러운 애니메이션 */
+}
+
+/* 진행 점 */
+.routeDot {
+  position: absolute;
+  top: 50%;
+  left: var(--pct);
+  transform: translate(-50%, -50%);
+  width: 8px;
+  height: 8px;
+  background: var(--route-color);
+  border-radius: 50%;
+  box-shadow: 0 0 0 2px rgba(255,255,255,0.2); /* 배경 대비용 */
+  transition: left 400ms ease;
+}
