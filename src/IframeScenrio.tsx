@@ -365,7 +365,7 @@ const IframeScenrio: React.FC = () => {
 										<img src={calendarIcon} alt="" />
 										<div className={styles.div4}>
 											{/* 예상 접안일 */}
-											{formatDateTime(data.result.currAtdDt ?? "", "date")}
+											{formatDateTime(data.result.currAtdDt ?? data.result.actlBrthDt, "date")}
 										</div>
 									</div>
 								</div>
@@ -397,7 +397,7 @@ const IframeScenrio: React.FC = () => {
 										<img src={calendarIcon} alt="" />
 										<div className={styles.div4}>
 											{/* 예상 출항일 */}
-											{formatDateTime(data.result.currDeptDt ?? "", "date")}
+											{formatDateTime(data.result.currDeptDt ?? data.result.actlDeptDt, "date")}
 										</div>
 									</div>
 								</div>
@@ -449,7 +449,7 @@ const IframeScenrio: React.FC = () => {
 										<img src={calendarIcon} alt="" />
 										<div className={styles.div4}>
 											{/* 최신 ETA 선사 시스템상 예상 도착일 */}
-											{formatDateTime(data.result.currEtaDt ?? "", "date")}
+											{formatDateTime(data.result.currEtaDt ?? data.result.actlArrvDt, "date")}
 										</div>
 									</div>
 								</div>
@@ -481,7 +481,7 @@ const IframeScenrio: React.FC = () => {
 										<img src={calendarIcon} alt="" />
 										<div className={styles.div4}>
 											{/* 예상 도착 접안일 */}
-											{formatDateTime(data.result.currEtbDt ?? "", "date", "YYYY-MM-DD")}
+											{formatDateTime(data.result.currEtbDt ?? data.result.actlBrthDt, "date", "YYYY-MM-DD")}
 										</div>
 									</div>
 								</div>
