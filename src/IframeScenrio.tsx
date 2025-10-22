@@ -237,6 +237,7 @@ const IframeScenrio: React.FC = () => {
 
 	return (
 		<div className={styles.frameParent}>
+			{/* header frame 영역 */}
 			<div className={styles.frameGroup}>
 				<div className={styles.frameContainer}>
 					<div className={styles.bookingNoParent}>
@@ -337,6 +338,8 @@ const IframeScenrio: React.FC = () => {
 					</b>
 				</div>
 			</div>
+
+			{/* main frame 영역 */}
 			<div className={styles.frameDiv}>
 				<div className={styles.labelChipContainer}>
 					<div className={styles.labelChip}>
