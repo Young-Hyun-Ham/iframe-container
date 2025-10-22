@@ -16,6 +16,7 @@ interface ResultData {
 	polNm?: string;
 	podCd?: string;
 	podNodeNm?: string;
+	podNm?: string;
 	custEtaDt?: string;
 	currRtbDt?: string;
 	currEddDt?: string;
@@ -349,11 +350,11 @@ const IframeScenrio: React.FC = () => {
 						<div className={styles.krpus01Parent}>
 							<b className={styles.krpus01}>
 								{/* 출발항구코드 */}
-								KRPUS01
+								{data.result.polNodeNm}
 							</b>
 							<div className={styles.pusanNewportInternational}>
 								{/* 출발항구명 */}
-								Pusan Newport International Terminal
+								{data.result.polNm}
 							</div>
 						</div>
 						<div className={styles.frameParent3}>
@@ -363,8 +364,8 @@ const IframeScenrio: React.FC = () => {
 									<div className={styles.vectorGroup}>
 										<img src={calendarIcon} alt="" />
 										<div className={styles.div4}>
-											{/* 예상접안일 */}
-											{formatDateTime(data.result.currEtbDt ?? data.result.actlBrthDt, "date", "YYYY-MM-DD")}
+											{/* 예상 접안일 */}
+											{formatDateTime(data.result.currAtdDt ?? "", "date")}
 										</div>
 									</div>
 								</div>
@@ -375,14 +376,14 @@ const IframeScenrio: React.FC = () => {
 										<div className={styles.bookingNoParent}>
 											<img src={calendarIcon} alt="" />
 											<div className={styles.div4}>
-												{/* 실제접안일 */}
+												{/* 실제 접안일 */}
 												{formatDateTime(data.result.actlBrthDt ?? "", "date", "YYYY-MM-DD")}
 											</div>
 										</div>
 										<div className={styles.bookingNoParent}>
 											<img src={clockIcon} alt="" width={14} height={13} />
 											<div className={styles.div4}>
-												{/* 실제접안시간 */}
+												{/* 실제 접안시간 */}
 												{formatDateTime(data.result.actlBrthDt ?? "", "time", "HH:mm:ss")}
 											</div>
 										</div>
@@ -395,8 +396,8 @@ const IframeScenrio: React.FC = () => {
 									<div className={styles.vectorGroup}>
 										<img src={calendarIcon} alt="" />
 										<div className={styles.div4}>
-											{/* 실제출발일 */}
-											{formatDateTime(data.result.actlDeptDt ?? "", "date", "YYYY-MM-DD")}
+											{/* 예상 출항일 */}
+											{formatDateTime(data.result.currDeptDt ?? "", "date")}
 										</div>
 									</div>
 								</div>
@@ -407,14 +408,14 @@ const IframeScenrio: React.FC = () => {
 										<div className={styles.bookingNoParent}>
 											<img src={calendarIcon} alt="" />
 											<div className={styles.div4}>
-												{/* 실제출발일 */}
+												{/* 실제 출항일 */}
 												{formatDateTime(data.result.actlDeptDt ?? "", "date", "YYYY-MM-DD")}
 											</div>
 										</div>
 										<div className={styles.bookingNoParent}>
 											<img src={clockIcon} alt="" width={14} height={13} />
 											<div className={styles.div4}>
-												{/* 실제출발일 */}
+												{/* 실제 출항시간 */}
 												{formatDateTime(data.result.actlDeptDt ?? "", "time", "HH:mm:ss")}
 											</div>
 										</div>
@@ -431,8 +432,14 @@ const IframeScenrio: React.FC = () => {
 					</div>
 					<div className={styles.frameParent8}>
 						<div className={styles.krpus01Parent}>
-							<b className={styles.krpus01}>CNSHAQ1</b>
-							<div className={styles.sipgZhenhuaTerminal}>SIPG Zhenhua Terminal</div>
+							<b className={styles.krpus01}>
+								{/* 도착치코드 */}
+								{data.result.podNodeNm}
+							</b>
+							<div className={styles.sipgZhenhuaTerminal}>
+								{/* 도착지명 */}
+								{data.result.podNm}
+							</div>
 						</div>
 						<div className={styles.frameParent3}>
 							<div className={styles.frameParent4}>
@@ -440,7 +447,10 @@ const IframeScenrio: React.FC = () => {
 									<div className={styles.atbberthing}>ETA(Arrival)</div>
 									<div className={styles.vectorGroup}>
 										<img src={calendarIcon} alt="" />
-										<div className={styles.div4}>2025-10-10</div>
+										<div className={styles.div4}>
+											{/* 최신 ETA 선사 시스템상 예상 도착일 */}
+											{formatDateTime(data.result.currEtaDt ?? "", "date")}
+										</div>
 									</div>
 								</div>
 								<div className={styles.div3}>|</div>
@@ -449,11 +459,17 @@ const IframeScenrio: React.FC = () => {
 									<div className={styles.frameParent5}>
 										<div className={styles.bookingNoParent}>
 											<img src={calendarIcon} alt="" />
-											<div className={styles.div4}>-</div>
+											<div className={styles.div4}>
+												{/* 실제 도착일 */}
+												{formatDateTime(data.result.actlArrvDt ?? "", "date", "YYYY-MM-DD")}
+											</div>
 										</div>
 										<div className={styles.bookingNoParent}>
 											<img src={clockIcon} alt="" width={14} height={13} />
-											<div className={styles.div4}>-</div>
+											<div className={styles.div4}>
+												{/* 실제 도착시간 */}
+												{formatDateTime(data.result.actlArrvDt ?? "", "time", "HH:mm:ss")}
+											</div>
 										</div>
 									</div>
 								</div>
@@ -463,7 +479,10 @@ const IframeScenrio: React.FC = () => {
 									<div className={styles.atbberthing}>ETB(Berthing)</div>
 									<div className={styles.vectorGroup}>
 										<img src={calendarIcon} alt="" />
-										<div className={styles.div4}>2025-10-10</div>
+										<div className={styles.div4}>
+											{/* 예상 도착 접안일 */}
+											{formatDateTime(data.result.currEtbDt ?? "", "date", "YYYY-MM-DD")}
+										</div>
 									</div>
 								</div>
 								<div className={styles.div3}>|</div>
@@ -472,11 +491,17 @@ const IframeScenrio: React.FC = () => {
 									<div className={styles.frameParent5}>
 										<div className={styles.bookingNoParent}>
 											<img src={calendarIcon} alt="" />
-											<div className={styles.div4}>-</div>
+											<div className={styles.div4}>
+												{/* 실제 도착 접안일 */}
+												{formatDateTime(data.result.actlBrthDt ?? "", "date", "YYYY-MM-DD")}
+											</div>
 										</div>
 										<div className={styles.bookingNoParent}>
 											<img src={clockIcon} alt="" width={14} height={13} />
-											<div className={styles.div4}>-</div>
+											<div className={styles.div4}>
+												{/* 실제 도착 접안시간 */}
+												{formatDateTime(data.result.actlBrthDt ?? "", "time", "HH:mm:ss")}
+											</div>
 										</div>
 									</div>
 								</div>

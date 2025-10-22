@@ -51,7 +51,7 @@ function parseLocalDateTime(dateStr?: string, timeStr?: string): number | null {
 function formatDateTime(
   datetimeStr: string,
   type: "date" | "time",
-  format: string
+  format?: string
 ): string {
   if (!datetimeStr) return "";
 
