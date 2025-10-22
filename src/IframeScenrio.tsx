@@ -141,7 +141,7 @@ const IframeScenrio: React.FC = () => {
 			blNr: "",
 		}
 	});
-	const [customHeight, setCustomHeight] = useState("");
+	const [paramDate, setParamDate] = useState("");
 	
   // 컨테이너 옵션 추출
   const containerOptions = useMemo(() => extractContainers(data.result), [data.result]);
@@ -184,7 +184,7 @@ const IframeScenrio: React.FC = () => {
 
 		// 시작일+시작시간 - 종료일+종료시간 진행률 계산
 		let customNow = parseLocalDateTime("2018/05/15 22:30:00")!;
-		customNow = parseLocalDateTime(getNowString()) ?? 0; // 현재일
+		customNow = parseLocalDateTime(paramDate) ?? 0;
 
 		const { pct, startMs, endMs } = computeProgressDT(
 			startDate, // startDate
@@ -193,8 +193,8 @@ const IframeScenrio: React.FC = () => {
 			endTime,              // endTime
 			{ nowMs: customNow }    // 기준 시각 주입
 		);
-		console.log("========> ", startDate, startTime, endDate, endTime);
-		console.log("========> ", data.result.actlBrthDt, data.result.actlDeptDt, customNow, pct, startMs, endMs);
+		// console.log("========> ", startDate, startTime, endDate, endTime);
+		// console.log("========> ", data.result.actlBrthDt, data.result.actlDeptDt, customNow, pct, startMs, endMs);
 
 		const status = getProgressStatus(pct, startMs, endMs, customNow);
 		const label = buildProgressLabel(status, startMs, endMs, {
@@ -213,15 +213,16 @@ const IframeScenrio: React.FC = () => {
 				const params = new URLSearchParams(window.location.search);
 				const isEncoding = params.get('isEncoding');
 				const reqData = params.get('reqData');
+				setParamDate(params.get('reqDate') ?? getNowString());
 				// console.log("======================>", (typeof reqData), reqData);
 				if (reqData) {
 					if (isEncoding === "true") {
 						const sampleData: ApiResponse = await decodeBase64Data(reqData);
-						console.log(JSON.stringify(sampleData, null, 2));
+						// console.log(JSON.stringify(sampleData, null, 2));
 						setData(sampleData);
 					} else if (isEncoding === "false") {
 						const sampleData: ApiResponse = JSON.parse(reqData);
-						console.log(JSON.stringify(sampleData, null, 2));
+						// console.log(JSON.stringify(sampleData, null, 2));
 						setData(sampleData);
 					} else {
 						// alert("isEncoding 데이터가 없습니다.");
