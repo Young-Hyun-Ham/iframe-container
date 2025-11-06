@@ -142,7 +142,7 @@ function buildProgressLabel(
   return { status, text: '-' };
 }
 
-const IframeScenrio: React.FC = () => {
+const IframeScenrioAsis: React.FC = () => {
 	const [data, setData] = useState<ApiResponse>({
 		result: {
 			blNr: "",
@@ -520,4 +520,4 @@ const IframeScenrio: React.FC = () => {
 	);
 };
 
-export default IframeScenrio;
+export default IframeScenrioAsis;
