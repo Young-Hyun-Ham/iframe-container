@@ -362,7 +362,7 @@ const IframeScenrio: React.FC = () => {
 							</b>
 							<div className={styles.pusanNewportInternational}>
 								{/* 출발항구명 */}
-								{data.result.polFclCd}
+								{data.result.polNdeNm}
 							</div>
 						</div>
 						<div className={styles.frameParent3}>
@@ -489,7 +489,7 @@ const IframeScenrio: React.FC = () => {
 										<img src={calendarIcon} alt="" />
 										<div className={styles.div4}>
 											{/* 예상 도착 접안일 */}
-											{formatDateTime(data.result.podCurtEtbDt2 ?? "", "date", "YYYY-MM-DD")}
+											{formatDateTime(data.result.podCurtEtbDt ?? "", "date", "YYYY-MM-DD")}
 										</div>
 									</div>
 								</div>
@@ -501,14 +501,14 @@ const IframeScenrio: React.FC = () => {
 											<img src={calendarIcon} alt="" />
 											<div className={styles.div4}>
 												{/* 실제 도착 접안일 */}
-												{formatDateTime(data.result.podActlBerthDt2 ?? "", "date", "YYYY-MM-DD")}
+												{formatDateTime(data.result.podActlBerthDt ?? "", "date", "YYYY-MM-DD")}
 											</div>
 										</div>
 										<div className={styles.bookingNoParent}>
 											<img src={clockIcon} alt="" width={14} height={13} />
 											<div className={styles.div4}>
 												{/* 실제 도착 접안시간 */}
-												{formatDateTime(data.result.podActlBerthDt2 ?? "", "time", "HH:mm:ss")}
+												{formatDateTime(data.result.podActlBerthDt ?? "", "time", "HH:mm:ss")}
 											</div>
 										</div>
 									</div>
