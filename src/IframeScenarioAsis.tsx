@@ -353,12 +353,12 @@ const IframeScenrioAsis: React.FC = () => {
 						<div className={styles.text}>POL</div>
 					</div>
 					<div className={styles.frameParent2}>
-						<div className={styles.krpus01Parent}>
-							<b className={styles.krpus01}>
+						<div className={styles.polParent}>
+							<b className={styles.polCd}>
 								{/* 출발항구코드 */}
 								{data.result.polFclCd}
 							</b>
-							<div className={styles.pusanNewportInternational}>
+							<div className={styles.polNdeNm}>
 								{/* 출발항구명 */}
 								{data.result.polNdeNm}
 							</div>
@@ -437,12 +437,12 @@ const IframeScenrioAsis: React.FC = () => {
 						<div className={styles.text}>POD</div>
 					</div>
 					<div className={styles.frameParent8}>
-						<div className={styles.krpus01Parent}>
-							<b className={styles.krpus01}>
+						<div className={styles.podParent}>
+							<b className={styles.podCd}>
 								{/* 도착치코드 */}
 								{data.result.podCd}
 							</b>
-							<div className={styles.sipgZhenhuaTerminal}>
+							<div className={styles.podNdeNm}>
 								{/* 도착지명 */}
 								{data.result.podNdeNm}
 							</div>

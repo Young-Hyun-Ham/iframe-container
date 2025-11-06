@@ -240,19 +240,36 @@
   	font-size: 16px;
   	color: #fff;
 }
-.krpus01Parent {
+.polParent {
   	display: flex;
   	align-items: flex-start;
   	gap: 3px;
 }
-.krpus01 {
+.polCd {
   	position: relative;
   	letter-spacing: 0.5px;
   	line-height: 16px;
 }
-.pusanNewportInternational {
+.polNdeNm {
   	position: relative;
-  	font-size: 13px;
+  	font-size: 10px;
+  	line-height: 16px;
+  	color: #9eadba;
+}
+.podParent {
+  	display: flex;
+  	align-items: flex-start;
+  	gap: 3px;
+}
+.podCd {
+  	position: relative;
+  	letter-spacing: 0.5px;
+  	line-height: 16px;
+}
+.podNdeNm {
+  	position: relative;
+  	font-size: 12px;
+  	letter-spacing: 0.5px;
   	line-height: 16px;
   	color: #9eadba;
 }
@@ -325,13 +342,6 @@
   	text-align: left;
   	font-size: 14px;
   	color: #fff;
-}
-.sipgZhenhuaTerminal {
-  	position: relative;
-  	font-size: 12px;
-  	letter-spacing: 0.5px;
-  	line-height: 16px;
-  	color: #9eadba;
 }
 
 /* select box 수정 ================================================ */
