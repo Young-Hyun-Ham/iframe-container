@@ -293,9 +293,10 @@
   	position: relative;
 }
 .div4 {
-  	position: relative;
-  	letter-spacing: 0.5px;
-  	line-height: 13px;
+	width: 86px;
+	position: relative;
+	letter-spacing: 0.5px;
+	line-height: 13px;
 }
 .frameParent5 {
   	display: flex;

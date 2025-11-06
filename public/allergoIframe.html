@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Embed Viewer</title>
+    <style>
+      html, body {
+        height: 100%;
+        margin: 0;
+      }
+      .wrap {
+        height: 100%;
+      }
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: 0;
+        display: block;
+      }
+    </style>
+    <script>
+      function callScreenOpen (url) {
+        if (url){
+          window.location.href=url;
+        }
+      };
+
+      window.addEventListener('message', (event) => {
+        try {
+          const ALLOWED_ORIGIN = 'http://localhost:3000';
+          if (event.origin !== ALLOWED_ORIGIN) {
+            console.info(`호출 주소 오류 -> origin: ${event.origin} send url: ${ALLOWED_ORIGIN}`);
+            event.source?.postMessage(
+              { action: 'CALL_FUNC_ERR_ORIGIN', payload: { message: String(err) } },
+              event.origin
+            );
+            return ;
+          }
+
+          const { action, payload } = event.data || {};
+          if (action === 'callScreenOpen') {
+            const fn = window[action];
+            // 함수명 체크
+            if (typeof fn !== 'function') throw new Error(`${action} 함수가 없습니다.`);
+            // action 명 함수 호출
+            fn(payload?.url ?? 'unknown');
+            // 응답이 필요하면 event.source.postMessage로 회신 가능
+            event.source?.postMessage({ action: 'CALL_FUNC_OK' }, ALLOWED_ORIGIN);
+          }
+        } catch (err) {
+          console.error('[A] 메시지 처리 실패:', err);
+          event.source?.postMessage(
+            { action: 'CALL_FUNC_ERR', error: String(err) },
+            event.origin
+          );
+        }
+      });
+    </script>
+  </head>
+  <body>
+      <div>11111111111111</div>
+    <div class="wrap">
+      <iframe
+        src='http://localhost:3000'
+        allowfullscreen
+        loading="eager"
+        referrerpolicy="no-referrer"
+      ></iframe>
+    </div>
+  </body>
+</html>

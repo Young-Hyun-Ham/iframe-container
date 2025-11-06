@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import styles from './iframeScenrio.module.css';
+import styles from './iframeScenario.module.css';
 import calendarIcon from '../public/calendar.svg';
 import clockIcon from '../public/clock.png';
 import { diffToParts, formatDateTime, formatParts, getFirstNonEmpty, getNowString, parseLocalDateTime } from './utils';
@@ -7,24 +7,30 @@ import { diffToParts, formatDateTime, formatParts, getFirstNonEmpty, getNowStrin
 interface ResultData {
 	blNr?: string;
 	dispBlNr?: string;
-	shpGameCd?: string;
+	svcdLaneCd?: string;
 	vslCd?: string;
-	vslVoyNr?: string;
-	scnCd?: string;
+	schVoyNr?: string;
+	schDirCd?: string;
 	polCd?: string;
-	polNodeNm?: string;
-	polNm?: string;
+	polFclCd?: string;
+	polNdeNm?: string;
 	podCd?: string;
-	podNodeNm?: string;
+	podNdeNm?: string;
 	podNm?: string;
-	custEtaDt?: string;
+	curtEtaDt?: string;
+	curtEtbDt?: string;
+	curtEtdDt?: string;
+
 	currRtbDt?: string;
 	currEddDt?: string;
 	uastEtaDt?: string;
 	actlArrvDt?: string;
-	actlBrthDt?: string;
+	actlBerthDt?: string;
 	actlDeptDt?: string;
 	contNr?: string;
+	vvd?: string;
+	vvdFullName?: string;
+	lastEtaDt?: string;
 	[key: string]: any;
 }
 
@@ -330,7 +336,7 @@ const IframeScenrio: React.FC = () => {
 					</div>
 					<div className={styles.div2}>
 						{/* 고객 기준 예상 도착일 */}
-						{formatDateTime(data.result.custEtaDt ?? "", "date", "YYYY-MM-DD")}
+						{formatDateTime(data.result.curtEtaDt ?? "", "date", "YYYY-MM-DD")}
 					</div>
 					<div className={styles.div3}>|</div>
 					<b className={styles.progressLabel}>
@@ -350,11 +356,11 @@ const IframeScenrio: React.FC = () => {
 						<div className={styles.krpus01Parent}>
 							<b className={styles.krpus01}>
 								{/* 출발항구코드 */}
-								{data.result.polNodeNm}
+								{data.result.polFclCd}
 							</b>
 							<div className={styles.pusanNewportInternational}>
 								{/* 출발항구명 */}
-								{data.result.polNm}
+								{data.result.polNdeNm}
 							</div>
 						</div>
 						<div className={styles.frameParent3}>
@@ -365,7 +371,7 @@ const IframeScenrio: React.FC = () => {
 										<img src={calendarIcon} alt="" />
 										<div className={styles.div4}>
 											{/* 예상 접안일 */}
-											{formatDateTime(data.result.currAtdDt ?? data.result.actlBrthDt, "date")}
+											{formatDateTime(data.result.currAtdDt ?? data.result.actlBerthDt, "date")}
 										</div>
 									</div>
 								</div>
@@ -377,14 +383,14 @@ const IframeScenrio: React.FC = () => {
 											<img src={calendarIcon} alt="" />
 											<div className={styles.div4}>
 												{/* 실제 접안일 */}
-												{formatDateTime(data.result.actlBrthDt ?? "", "date", "YYYY-MM-DD")}
+												{formatDateTime(data.result.actlBerthDt ?? "", "date", "YYYY-MM-DD")}
 											</div>
 										</div>
 										<div className={styles.bookingNoParent}>
 											<img src={clockIcon} alt="" width={14} height={13} />
 											<div className={styles.div4}>
 												{/* 실제 접안시간 */}
-												{formatDateTime(data.result.actlBrthDt ?? "", "time", "HH:mm:ss")}
+												{formatDateTime(data.result.actlBerthDt ?? "", "time", "HH:mm:ss")}
 											</div>
 										</div>
 									</div>
@@ -434,11 +440,11 @@ const IframeScenrio: React.FC = () => {
 						<div className={styles.krpus01Parent}>
 							<b className={styles.krpus01}>
 								{/* 도착치코드 */}
-								{data.result.podNodeNm}
+								{data.result.podCd}
 							</b>
 							<div className={styles.sipgZhenhuaTerminal}>
 								{/* 도착지명 */}
-								{data.result.podNm}
+								{data.result.podNdeNm}
 							</div>
 						</div>
 						<div className={styles.frameParent3}>
@@ -481,7 +487,7 @@ const IframeScenrio: React.FC = () => {
 										<img src={calendarIcon} alt="" />
 										<div className={styles.div4}>
 											{/* 예상 도착 접안일 */}
-											{formatDateTime(data.result.currEtbDt ?? data.result.actlBrthDt, "date", "YYYY-MM-DD")}
+											{formatDateTime(data.result.curtEtbDt ?? "", "date", "YYYY-MM-DD")}
 										</div>
 									</div>
 								</div>
@@ -493,14 +499,14 @@ const IframeScenrio: React.FC = () => {
 											<img src={calendarIcon} alt="" />
 											<div className={styles.div4}>
 												{/* 실제 도착 접안일 */}
-												{formatDateTime(data.result.actlBrthDt ?? "", "date", "YYYY-MM-DD")}
+												{formatDateTime(data.result.actlBerthDt ?? "", "date", "YYYY-MM-DD")}
 											</div>
 										</div>
 										<div className={styles.bookingNoParent}>
 											<img src={clockIcon} alt="" width={14} height={13} />
 											<div className={styles.div4}>
 												{/* 실제 도착 접안시간 */}
-												{formatDateTime(data.result.actlBrthDt ?? "", "time", "HH:mm:ss")}
+												{formatDateTime(data.result.actlBerthDt ?? "", "time", "HH:mm:ss")}
 											</div>
 										</div>
 									</div>

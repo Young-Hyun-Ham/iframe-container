@@ -1,7 +1,7 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
-import IframeScenario from './IframeScenario'
+import IframeScenario from '../../IframeScenarioTobe'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
