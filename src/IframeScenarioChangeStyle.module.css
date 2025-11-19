@@ -1,0 +1,529 @@
+
+/* ===== 루트 컨테이너: 고정 폭/높이 제거, 부모(iframe) 크기에 맞춰 채움 ===== */
+.frameParent {
+  position: relative;
+  border-radius: 4px;
+  background-color: #445b6f;
+
+  /* ↓ 고정 크기 삭제 (width: 586.188px; height: 410px;) */
+  inline-size: 100%;
+  block-size: 100%;               /* iframe 크기 바뀌면 같이 변화 */
+  box-sizing: border-box;
+
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+
+  padding: clamp(8px, 1.8vw, 12px);
+  gap: clamp(12px, 2vw, 20px);
+
+  text-align: left;
+  font-size: clamp(11px, 1.4vw, 12px);
+  color: #141a20;
+  font-family: Roboto, system-ui, -apple-system, Segoe UI, Arial, "Noto Sans KR", sans-serif;
+}
+
+.frameGroup {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: clamp(8px, 1.2vw, 10px);
+}
+
+/* ===== 상단 행: 줄바꿈 허용하여 좁은 폭에서 자연스럽게 2줄로 ===== */
+.frameContainer {
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: clamp(8px, 2vw, 20px);
+  font-size: clamp(13px, 1.6vw, 14px);
+  color: #fff;
+
+  flex-wrap: wrap; /* 핵심 */
+  row-gap: 8px;
+}
+
+.bookingNoParent {
+  display: flex;
+  align-items: center;
+	gap: clamp(3px, calc(0.8 * 1cqi), 8px);  /* iframe 너비에 따라 자동 조정 */
+  min-inline-size: clamp(140px, 25cqi, 120px); /* 너무 좁거나 넓지 않게 제한 */
+  flex-wrap: wrap; /* 작은 화면에서 자동 줄바꿈 */
+}
+
+.bookingNo {
+  position: relative;
+  letter-spacing: 0.5px;
+  line-height: 20px;
+}
+
+.div {
+  position: relative;
+  letter-spacing: 0.5px;
+  line-height: 20px;
+  color: #96a9bd;
+}
+
+/* ===== 우측 컨테이너 선택 박스 영역: 유연 폭 ===== */
+.tableLayoutCell {
+  flex: 1 1 240px; /* 최소 240px부터 늘어나고 shrink 가능 */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 2px;
+  box-sizing: border-box;
+  min-inline-size: 200px;
+  max-inline-size: 420px;
+  font-size: 12px;
+  color: #1c1c1c;
+}
+
+.textFieldXsmall {
+  align-self: stretch;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.textField {
+  align-self: stretch;
+  height: 32px; /* 살짝 키워 가독성 */
+  border-radius: 6px;
+  background-color: #fff;
+  border: 1px solid #8a8a8a;
+  box-sizing: border-box;
+  overflow: hidden;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  padding: 0 6px;
+}
+
+.span {
+  align-self: stretch;
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.inputArea {
+  align-self: stretch;
+  flex: 1;
+  overflow-x: auto;
+  display: flex;
+  align-items: center;
+  padding: 0 0 0 8px;
+}
+
+.inputText {
+  flex: 1;
+  display: flex;
+  align-items: flex-start;
+}
+
+.input {
+  flex: 1;
+  position: relative;
+  letter-spacing: 0.4px;
+  line-height: 16px;
+}
+
+.trailingButtonDiv {
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.iconButton {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  border-radius: 100px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.stateLayer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px;
+}
+
+.icon {
+  height: 16px;
+  width: 16px;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.vectorIcon {
+  position: absolute;
+  height: 20.63%;
+  width: 41.88%;
+  top: 39.58%;
+  right: 28.96%;
+  bottom: 39.79%;
+  left: 29.17%;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+}
+
+.labelChipParent {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-align: center;
+}
+
+.labelChip {
+  border-radius: 8px;
+  background-color: #c1e5ff;
+  display: flex;
+  align-items: center;
+  padding: 2px 8px;
+}
+
+.text {
+  position: relative;
+  letter-spacing: 0.5px;
+  line-height: 16px;
+  font-weight: 500;
+}
+
+.vectorParent {
+  display: flex;
+  align-items: center;
+}
+
+.frameChild {
+  height: 10.7px;
+  width: 141px;
+  position: relative;
+  max-height: 100%;
+}
+
+.frameItem {
+  height: 1px;
+  width: 242px;
+  position: relative;
+  border-top: 1px dashed rgba(255, 255, 255, 0.7);
+  box-sizing: border-box;
+}
+
+.labelChip3 {
+  border-radius: 8px;
+  background-color: #e5e9ed;
+  display: flex;
+  align-items: center;
+  padding: 2px 8px;
+  text-align: center;
+}
+
+.div2 {
+  position: relative;
+  letter-spacing: 0.5px;
+  line-height: 20px;
+  color: #fff;
+}
+
+.div3 {
+  position: relative;
+  font-size: clamp(12px, 1.6vw, 14px);
+  letter-spacing: 0.5px;
+  line-height: 20px;
+  color: #96a9bd;
+}
+
+.progressLabel {
+  position: relative;
+  letter-spacing: 0.5px;
+  line-height: 20px;
+  color: #f7e7b0;
+}
+
+/* ===== 본문 카드: 고정 폭 제거, 가로 100%로 ===== */
+.frameDiv {
+  inline-size: 100%; /* width: 564px; 제거 */
+  border-radius: 4px;
+  background-color: #37475A;
+  border: 1px solid #9aa0b4;
+  box-sizing: border-box;
+
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
+
+  padding: clamp(10px, 2vw, 15px) clamp(8px, 1.6vw, 10px);
+  gap: 0;
+  text-align: center;
+}
+
+/* 좌우 묶음 줄바꿈 허용 */
+.labelChipContainer {
+  align-self: stretch;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  flex-wrap: wrap; /* 핵심 */
+}
+
+.frameParent2 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: clamp(10px, 2vw, 15px);
+  text-align: left;
+  font-size: clamp(14px, 2vw, 16px);
+  color: #fff;
+
+	/* 줄바꿈 방지용 핵심 설정 */
+  min-width: 0;              /* flex 내부에서 자식이 줄어들 수 있도록 */
+  white-space: nowrap;       /* 자동 줄바꿈 방지 */
+  overflow: hidden;          /* 넘침은 숨기기 */
+  text-overflow: ellipsis;   /* 공간 부족 시 말줄임 */
+}
+/* 하위 텍스트 항목(POL 코드, 항구명 등)도 동일하게 처리 */
+.frameParent2 * {
+  min-width: 0;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.polParent,
+.podParent {
+  display: flex;
+  align-items: flex-start;
+  gap: 3px;
+  flex-wrap: wrap;
+}
+
+.polCd,
+.podCd {
+  position: relative;
+  letter-spacing: 0.5px;
+  line-height: 16px;
+}
+
+.polNdeNm {
+  position: relative;
+  font-size: 10px;
+  line-height: 16px;
+  color: #9eadba;
+}
+
+.podNdeNm {
+  position: relative;
+  font-size: 12px;
+  letter-spacing: 0.5px;
+  line-height: 16px;
+  color: #9eadba;
+}
+
+.frameParent3 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: clamp(8px, 1.8vw, 12px);
+  font-size: 11px;
+  color: #d4dde6;
+}
+
+/* 좌우 블록 줄바꿈 허용 */
+.frameParent4 {
+  display: flex;
+  align-items: center;
+  gap: clamp(10px, 2vw, 20px);
+  flex-wrap: wrap; /* 핵심 */
+}
+
+.atbberthingParent {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 5px;
+}
+
+.atbberthing {
+  position: relative;
+  letter-spacing: 0.5px;
+  line-height: 11px;
+}
+
+.vectorGroup {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: clamp(12px, 1.6vw, 13px);
+  color: #fff;
+}
+
+.vectorIcon2 {
+  height: 11px;
+  width: 10px;
+  position: relative;
+}
+
+/* 날짜 텍스트: 고정폭 제거 + 말줄임 처리 */
+.div4 {
+  inline-size: auto;       /* width: 86px; 제거 */
+  letter-spacing: 0.5px;
+  line-height: 13px;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-inline-size: 40vw;   /* 너무 길면 줄임 (상황에 맞게 조절) */
+}
+
+.frameParent5 {
+  display: flex;
+  align-items: flex-start;
+  gap: clamp(8px, 2vw, 15px);
+  font-size: clamp(12px, 1.6vw, 13px);
+  color: #fff;
+}
+
+.clockIcon {
+  height: 13px;
+  width: 14px;
+  position: relative;
+  object-fit: cover;
+}
+
+.frameInner {
+  width: 0;
+  height: 23px;
+  position: relative;
+  object-fit: contain;
+}
+
+.frameParent8 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: clamp(10px, 2vw, 15px);
+  text-align: left;
+  font-size: clamp(13px, 1.8vw, 14px);
+  color: #fff;
+
+	/* 줄바꿈 방지용 핵심 설정 */
+  min-width: 0;              /* flex 내부에서 자식이 줄어들 수 있도록 */
+  white-space: nowrap;       /* 자동 줄바꿈 방지 */
+  overflow: hidden;          /* 넘침은 숨기기 */
+  text-overflow: ellipsis;   /* 공간 부족 시 말줄임 */
+}
+/* 하위 텍스트 항목(POL 코드, 항구명 등)도 동일하게 처리 */
+.frameParent8 * {
+  min-width: 0;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+/* ===== select 박스 (기존 유지, 라운드 값만 살짝 통일) ===== */
+.select {
+  width: 100%;
+  background: #fff;
+  color: #000;
+  border: 0;
+  border-radius: 6px;
+  padding: 6px 10px;
+  outline: none;
+  appearance: auto;
+  -webkit-appearance: auto;
+}
+
+.select:focus-visible {
+  box-shadow: 0 0 0 2px rgba(0, 120, 255, 0.35);
+}
+
+/* ===== 라우트 라인: 기존 로직 유지 ===== */
+:root {
+  --route-color: #b3d9ff;
+  --route-dash:  #b3d9ff;
+  --route-bg:    transparent;
+}
+
+.routeLine {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  margin: 12px 0;
+  --pct: 0%;
+}
+
+.routePoint {
+  background-color: var(--route-color);
+  border-radius: 999px;
+  padding: 4px 10px;
+  font-weight: 700;
+  color: #000;
+  font-size: 13px;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.routeBar {
+  position: relative;
+  flex: 1;
+  height: 2px;
+}
+
+.routeTrack {
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+    to right,
+    var(--route-dash) 0 4px,
+    var(--route-bg) 4px 8px
+  );
+  opacity: 0.8;
+  border-radius: 2px;
+}
+
+.routeProgress {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 2px;
+  width: var(--pct);
+  background: var(--route-color);
+  border-radius: 2px;
+  transition: width 400ms ease;
+}
+
+.routeDot {
+  position: absolute;
+  top: 50%;
+  left: var(--pct);
+  transform: translate(-50%, -50%);
+  width: 8px;
+  height: 8px;
+  background: var(--route-color);
+  border-radius: 50%;
+  box-shadow: 0 0 0 2px rgba(255,255,255,0.2);
+  transition: left 400ms ease;
+}
+
+/* ===== 작은 화면 최적화 ===== */
+@media (max-width: 420px) {
+  .div3 { display: none; } /* 구분 기호 '|' 제거로 좁은 폭 가독성 확보 */
+}
+
+

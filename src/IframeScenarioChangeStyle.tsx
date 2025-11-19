@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import styles from './iframeScenario.module.css';
-// import calendarIcon from '../public/calendar.svg';
-// import clockIcon from '../public/clock.png';
+import styles from './IframeScenarioChangeStyle.module.css';
+import calendarIcon from '../public/calendar.svg';
+import clockIcon from '../public/clock.png';
 import { diffToParts, formatDateTime, formatParts, getFirstNonEmpty, getNowString, parseLocalDateTime } from './utils';
 
 interface ResultData {
@@ -35,47 +35,6 @@ interface ResultData {
   podNdeNm?: string; // 양하항 터미널명
 	[key: string]: any;
 }
-
-const CalendarIcon = () => (
-<svg width="10" height="11" viewBox="0 0 10 11" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <path 
-    d="M9 1H8.5V0H7.5V1H2.5V0H1.5V1H1C0.45 1 0 1.45 0 2V10C0 10.55 0.45 11 1 11H9C9.55 11 10 10.55 10 10V2C10 1.45 9.55 1 9 1ZM9 10H1V4.5H9V10ZM9 3.5H1V2H9V3.5Z" 
-    fill="#FFFFFF"
-  />
-</svg>
-);
-
-const ColckIcon = () => (
-	<svg width="10" height="11" viewBox="0 0 10 11" fill="none" xmlns="http://www.w3.org/2000/svg">
-		<circle 
-			cx="5" 
-			cy="5.5" 
-			r="4" 
-			stroke="#FFFFFF" 
-			stroke-width="1.2"
-		/>
-
-		<line 
-			x1="5" 
-			y1="5.5" 
-			x2="5" 
-			y2="3" 
-			stroke="#FFFFFF" 
-			stroke-width="1.2" 
-			stroke-linecap="round"
-		/>
-
-		<line 
-			x1="5" 
-			y1="5.5" 
-			x2="7" 
-			y2="5.5" 
-			stroke="#FFFFFF" 
-			stroke-width="1.2" 
-			stroke-linecap="round"
-		/>
-	</svg>
-);
 
 interface ApiResponse {
 	result: ResultData;
@@ -411,8 +370,7 @@ const IframeScenrio: React.FC = () => {
 								<div className={styles.atbberthingParent}>
 									<div className={styles.atbberthing}>ETB(Berthing)</div>
 									<div className={styles.vectorGroup}>
-										{/* <img src={calendarIcon} alt="" /> */}
-										<CalendarIcon />
+										<img src={calendarIcon} alt="" />
 										<div className={styles.div4}>
 											{/* 예상 접안일 */}
 											{formatDateTime(data.result.polCurtEtbDt ?? "", "date")}
@@ -424,16 +382,14 @@ const IframeScenrio: React.FC = () => {
 									<div className={styles.atbberthing}>Actual</div>
 									<div className={styles.frameParent5}>
 										<div className={styles.bookingNoParent}>
-											{/* <img src={calendarIcon} alt="" /> */}
-											<CalendarIcon />
+											<img src={calendarIcon} alt="" />
 											<div className={styles.div4}>
 												{/* 실제 접안일 */}
 												{formatDateTime(data.result.polActlBerthDt ?? "", "date", "YYYY-MM-DD")}
 											</div>
 										</div>
 										<div className={styles.bookingNoParent}>
-											{/* <img src={clockIcon} alt="" width={14} height={13} /> */}
-											<ColckIcon />
+											<img src={clockIcon} alt="" width={14} height={13} />
 											<div className={styles.div4}>
 												{/* 실제 접안시간 */}
 												{formatDateTime(data.result.polActlBerthDt ?? "", "time", "HH:mm:ss")}
@@ -446,8 +402,7 @@ const IframeScenrio: React.FC = () => {
 								<div className={styles.atbberthingParent}>
 									<div className={styles.atbberthing}>ETD(Departure)</div>
 									<div className={styles.vectorGroup}>
-										{/* <img src={calendarIcon} alt="" /> */}
-										<CalendarIcon />
+										<img src={calendarIcon} alt="" />
 										<div className={styles.div4}>
 											{/* 예상 출항일 */}
 											{formatDateTime(data.result.polCurtEtdDt ?? "", "date")}
@@ -459,16 +414,14 @@ const IframeScenrio: React.FC = () => {
 									<div className={styles.atbberthing}>Actual</div>
 									<div className={styles.frameParent5}>
 										<div className={styles.bookingNoParent}>
-											{/* <img src={calendarIcon} alt="" /> */}
-											<CalendarIcon />
+											<img src={calendarIcon} alt="" />
 											<div className={styles.div4}>
 												{/* 실제 출항일 */}
 												{formatDateTime(data.result.polActlDeptDt ?? "", "date", "YYYY-MM-DD")}
 											</div>
 										</div>
 										<div className={styles.bookingNoParent}>
-											{/* <img src={clockIcon} alt="" width={14} height={13} /> */}
-											<ColckIcon />
+											<img src={clockIcon} alt="" width={14} height={13} />
 											<div className={styles.div4}>
 												{/* 실제 출항시간 */}
 												{formatDateTime(data.result.polActlDeptDt ?? "", "time", "HH:mm:ss")}
@@ -501,8 +454,7 @@ const IframeScenrio: React.FC = () => {
 								<div className={styles.atbberthingParent}>
 									<div className={styles.atbberthing}>ETA(Arrival)</div>
 									<div className={styles.vectorGroup}>
-										{/* <img src={calendarIcon} alt="" /> */}
-										<CalendarIcon />
+										<img src={calendarIcon} alt="" />
 										<div className={styles.div4}>
 											{/* 최신 ETA 선사 시스템상 예상 도착일 */}
 											{formatDateTime(data.result.podCurtEtaDt ?? "", "date")}
@@ -514,16 +466,14 @@ const IframeScenrio: React.FC = () => {
 									<div className={styles.atbberthing}>Actual</div>
 									<div className={styles.frameParent5}>
 										<div className={styles.bookingNoParent}>
-											{/* <img src={calendarIcon} alt="" /> */}
-											<CalendarIcon />
+											<img src={calendarIcon} alt="" />
 											<div className={styles.div4}>
 												{/* 실제 도착일 */}
 												{formatDateTime(data.result.podActlArrvDt ?? "", "date", "YYYY-MM-DD")}
 											</div>
 										</div>
 										<div className={styles.bookingNoParent}>
-											{/* <img src={clockIcon} alt="" width={14} height={13} /> */}
-											<ColckIcon />
+											<img src={clockIcon} alt="" width={14} height={13} />
 											<div className={styles.div4}>
 												{/* 실제 도착시간 */}
 												{formatDateTime(data.result.podActlArrvDt ?? "", "time", "HH:mm:ss")}
@@ -536,8 +486,7 @@ const IframeScenrio: React.FC = () => {
 								<div className={styles.atbberthingParent}>
 									<div className={styles.atbberthing}>ETB(Berthing)</div>
 									<div className={styles.vectorGroup}>
-										{/* <img src={calendarIcon} alt="" /> */}
-										<CalendarIcon />
+										<img src={calendarIcon} alt="" />
 										<div className={styles.div4}>
 											{/* 예상 도착 접안일 */}
 											{formatDateTime(data.result.podCurtEtbDt ?? "", "date", "YYYY-MM-DD")}
@@ -549,16 +498,14 @@ const IframeScenrio: React.FC = () => {
 									<div className={styles.atbberthing}>Actual</div>
 									<div className={styles.frameParent5}>
 										<div className={styles.bookingNoParent}>
-											{/* <img src={calendarIcon} alt="" /> */}
-											<CalendarIcon />
+											<img src={calendarIcon} alt="" />
 											<div className={styles.div4}>
 												{/* 실제 도착 접안일 */}
 												{formatDateTime(data.result.podActlBerthDt ?? "", "date", "YYYY-MM-DD")}
 											</div>
 										</div>
 										<div className={styles.bookingNoParent}>
-											{/* <img src={clockIcon} alt="" width={14} height={13} /> */}
-											<ColckIcon />
+											<img src={clockIcon} alt="" width={14} height={13} />
 											<div className={styles.div4}>
 												{/* 실제 도착 접안시간 */}
 												{formatDateTime(data.result.podActlBerthDt ?? "", "time", "HH:mm:ss")}
