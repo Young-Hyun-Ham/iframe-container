@@ -109,9 +109,9 @@ function extractContainers(result: ResultData): string[] {
       containers = [result.contNr];
     }
   }
-
   // 기본 옵션 추가: label "Container No.", value ""
-  return ['', ...containers];
+  // return ['', ...containers];
+	return [...containers];
 }
 
 type ProgressStatus = 'not-started' | 'in-progress' | 'completed' | 'overdue';
