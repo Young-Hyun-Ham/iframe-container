@@ -46,8 +46,12 @@ git clone https://gitlab.wisenut.kr/enterprise-project/clt/clt-chatbot-system-mk
   git clone https://아이디@gitlab.wisenut.kr/enterprise-project/clt/clt-chatbot-system-mk1.git
   ```
   - 이후에 물어보는 Password란에는 발급받은 토큰을 입력하는 것이 가장 확실합니다.
-9. 프로젝트 실행 && 종료
+
+---
+
+## 2. 프로젝트 실행 및 종료
 ```bash
+### 실행 경로
 ~/wsl-workspace$ cd clt-chatbot-system-mk1/01.workspaces/infra/
 ### 실행
 ~/wsl-workspace/clt-chatbot-system-mk1/01.workspaces/infra$ doker-compose up -d
